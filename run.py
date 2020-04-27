@@ -132,7 +132,7 @@ def getSongName(title,details):
 
 def get_song(section,**kwargs):
     """ Downloads the video at youtubeUrl, saves it as a wav file at given destination, and then returns song info """
-    youtubeUrl,destination = kwargs["url","_song_database_loc"]
+    youtubeUrl,destination = kwargs["url"],kwargs["_song_database_loc"]
     track = YouTube(youtubeUrl)
     videoDetails = track.player_config_args["player_response"]["videoDetails"]
     sf = track.streams.filter(progressive=True,subtype="mp4")
