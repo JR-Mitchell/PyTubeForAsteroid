@@ -1,5 +1,5 @@
 import subprocess, json
-from fixed_pytube import YouTube
+from .fixed_pytube import YouTube
 from html import unescape
 
 def _charScore(character):
