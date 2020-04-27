@@ -160,7 +160,7 @@ def get_song(section,**kwargs):
         subprocess.call('rm "{}"'.format(stream.default_filename),shell=True)
         return songData
 
-def get_parser():
+def get_parser(section):
     """ Returns a flask request parser for POST requests to the PyTube requester """
     from flask_restful import reqparse
     parser = reqparse
