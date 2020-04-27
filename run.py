@@ -163,6 +163,6 @@ def get_song(section,**kwargs):
 def get_parser(section):
     """ Returns a flask request parser for POST requests to the PyTube requester """
     from flask_restful import reqparse
-    parser = reqparse
+    parser = reqparse.RequestParser()
     parser.add_argument('url', type=str, required=True)
     return parser
