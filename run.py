@@ -156,7 +156,7 @@ def get_song(section,**kwargs):
         return None
     else:
         #Try to guess the song name and artist
-        songData["name"],songData["artist"] = getSongName(track.title,videoDetails)
+        songData["artist"],songData["name"] = getSongName(track.title,videoDetails)
         #Download
         stream.download()
         #Convert to .wav
