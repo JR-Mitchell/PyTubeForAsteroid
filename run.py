@@ -144,7 +144,7 @@ def get_song(section,**kwargs):
     stream = sf.all()[0]
     songData = {"duration":videoDetails["lengthSeconds"]}
     #Work out the file name
-    songData["file_path"] = destination+stream.default_filename.replace(".mp4",".mp3")
+    songData["file_path"] = destination+stream.default_filename.replace(".mp4",".wav")
     #Check the file doesn't already exist
     fileAlreadyExists = True
     try:
