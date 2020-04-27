@@ -130,8 +130,9 @@ def getSongName(title,details):
             return(firstSplitString,secondSplitString)
 
 
-def get_song(youtubeUrl, destination):
+def get_song(section,**kwargs):
     """ Downloads the video at youtubeUrl, saves it as a wav file at given destination, and then returns song info """
+    youtubeUrl,destination = kwargs["url","_song_database_loc"]
     track = YouTube(youtubeUrl)
     videoDetails = track.player_config_args["player_response"]["videoDetails"]
     sf = track.streams.filter(progressive=True,subtype="mp4")
@@ -159,3 +160,9 @@ def get_song(youtubeUrl, destination):
         subprocess.call('rm "{}"'.format(stream.default_filename),shell=True)
         return songData
 
+def get_parser():
+    """ Returns a flask request parser for POST requests to the PyTube requester """
+    from flask_restful import reqparse
+    parser = reqparse
+    parser.add_argument('url', type=str, required=True)
+    return parser
