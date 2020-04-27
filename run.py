@@ -160,7 +160,7 @@ def get_song(section,**kwargs):
         #Download
         stream.download()
         #Convert to .wav
-        subprocess.call('ffmpeg -i "{}" "{}"'.format(stream.default_filename),songData["file_path"],shell=True)
+        subprocess.call('ffmpeg -i "{}" "{}"'.format(stream.default_filename,songData["file_path"]),shell=True)
         #Remove vid
         subprocess.call('rm "{}"'.format(stream.default_filename),shell=True)
         return songData
